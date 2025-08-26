@@ -1,7 +1,8 @@
 PROJECT_NAME := ILoveCompiling
+VER := 1.0
 
 COMP := g++
-VER := 1.0
+C_STD := c++20
 
 ifeq ($(DEBUG),false)
 	FILE_PATH := ./release
@@ -18,7 +19,7 @@ setup:
 	mkdir -p src $(FILE_PATH)
 
 build:
-	$(COMP) $(FILES) -o $(FILE_PATH)/$(PROJECT_NAME)-$(VER)
+	$(COMP) $(FILES) -o $(FILE_PATH)/$(PROJECT_NAME)-$(VER) -std=$(C_STD)
 
 run:
 	chmod 777 $(FILE_PATH)/$(PROJECT_NAME)-$(VER)

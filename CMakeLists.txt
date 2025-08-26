@@ -1,10 +1,14 @@
 cmake_minimum_required(VERSION 4.0)
 project(LoggerTesting_CPP)
 
-set(CMAKE_CXX_STANDARD 26)
+set(CMAKE_CXX_STANDARD 20)
 
 add_executable(LoggerTesting_CPP src/main.cpp
         src/Logger.cpp
-        src/Logger.hpp)
+        src/Logger.hpp
+        src/date.h)
 
-add_custom_target(Makefile all)
+add_custom_target(Makefile all
+
+
+)

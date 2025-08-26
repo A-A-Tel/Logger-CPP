@@ -6,14 +6,14 @@
 #include <chrono>
 
 #include "Logger.hpp"
-
+#include "date.h"
 
 using namespace std;
 
 void Logger::date_time_test() {
 
-    unsigned long long millis = chrono::system_clock::now().time_since_epoch().count();
+    using namespace date;
 
-    cout << millis << endl;
+    cout << chrono::system_clock::now() << '\n';
 
 }

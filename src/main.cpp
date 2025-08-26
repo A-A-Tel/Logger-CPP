@@ -1,9 +1,9 @@
-#include <iostream>
+#include "Logger.hpp"
 
 int main() {
 
-    printf("Press enter to stop\n");
-    scanf("e");
+    Logger logger = Logger();
 
+    logger.date_time_test();
     return 0;
 }

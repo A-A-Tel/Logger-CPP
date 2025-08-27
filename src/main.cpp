@@ -1,9 +1,8 @@
-#include "Logger.hpp"
+#include <iostream>
+
 
 int main() {
-    Logger *logger = Logger::get_instance();
-
-    logger->log("Something has happened!");
+    std::cout << "wsp g" << std::endl;
 
     return 0;
 }

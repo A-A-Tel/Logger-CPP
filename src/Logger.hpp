@@ -1,34 +1,30 @@
 //
-// Created by anthony on 26-08-2025.
+// Created by anthony on 27-08-2025.
 //
 
 #ifndef LOGGERTESTING_CPP_LOGGER_HPP
 #define LOGGERTESTING_CPP_LOGGER_HPP
-#include <chrono>
-#include <date/date.h>
-#include <date/tz.h>
 
-#include "strategies/LogStrategy.hpp"
+#include "chrono"
 
+using namespace std;
+using namespace chrono;
 
-class Logger {
+namespace log {
 
-public:
-    virtual ~Logger();
+    class Logger final {
+    public:
+        ~Logger() = default;
 
-    void log(std::string message);
+        static Logger *get_instance();
 
-    static Logger *get_instance();
+    private:
+        Logger() = default;
 
-private:
-    Logger();
+        static Logger *instance;
+    };
 
-    log_strats::LogStrategy *strategy;
-
-    date::zoned_time<std::chrono::duration<long, std::ratio<1, 1000000000>>> get_time() const;
-
-    static Logger *instance;
-};
+}
 
 
 

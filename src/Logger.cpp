@@ -22,4 +22,6 @@ void Logger::date_time_test() {
 
 }
 
+Logger Logger::instance = Logger();
+
 Logger::Logger() = default;

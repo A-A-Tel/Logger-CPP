@@ -21,3 +21,5 @@ void Logger::date_time_test() {
 
 
 }
+
+Logger::Logger() = default;

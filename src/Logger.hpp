@@ -10,23 +10,26 @@
 class Logger {
 
 public:
+    void date_time_test();
+
+
     static void init() {
         if (initialized) return;
         instance = Logger();
         initialized = true;
     }
+
     static Logger get_instance() {
         return instance;
     }
 
-    void date_time_test();
-
 private:
-    static Logger instance;
-    inline static bool initialized = false;
-
-
     Logger();
+
+    // int iterations = 0; // When this is uncommented, the whole thing breaks??
+    static Logger instance;
+
+    inline static bool initialized = false;
 };
 
 

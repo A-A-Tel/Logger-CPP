@@ -5,11 +5,8 @@
 #include <iostream>
 #include <format>
 #include <string>
-#include <unistd.h>
 
 #include "Logger.hpp"
-#include "date/date.h"
-#include "date/tz.h"
 
 
 Logger *Logger::get_instance() {

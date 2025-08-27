@@ -6,9 +6,8 @@
 #define LOGGERTESTING_CPP_LOGSTRATEGY_HPP
 #include <chrono>
 #include <string>
-
-#include "../date/date.h"
-#include "../date/tz.h"
+#include <date/date.h>
+#include <date/tz.h>
 
 namespace log_strats {
 
@@ -17,10 +16,10 @@ namespace log_strats {
     public:
         virtual ~LogStrategy() = default;
 
-        virtual void log(std::string message, std::chrono::time_point<std::chrono::system_clock>) = 0;
+        virtual void log(std::string message, std::chrono::time_point<std::chrono::system_clock> time) = 0;
 
-    private:
-        std::string format_datetime(date::zoned_time<std::chrono::duration<long, std::ratio<1, 1000000000>>>);
+    protected:
+        std::string format_datetime(date::zoned_time<std::chrono::duration<long, std::ratio<1, 1000000000>>>) const;
     };
 }
 

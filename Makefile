@@ -10,10 +10,10 @@ else
 	FILE_PATH := ./debug
 endif
 
-FILES := $(wildcard ./src/*.c)
-FILES += $(wildcard ./src/*.cpp)
-FILES += $(wildcard ./src/*.h)
-FILES += $(wildcard ./src/*.hpp)
+FILES := $(shell find ./src/ -type f -name '*.c')
+FILES += $(shell find ./src/ -type f -name '*.h')
+FILES += $(shell find ./src/ -type f -name '*.cpp')
+FILES += $(shell find ./src/ -type f -name '*.hpp')
 
 setup:
 	mkdir -p src $(FILE_PATH)

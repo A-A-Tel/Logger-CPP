@@ -1,13 +1,20 @@
 classDiagram
-    class Logger {
+    class ConsoleLogger {
 
         -iterations : int
+        -strategy : LoggingStrategy
         -instance : Logger$
 
-
         -Logger()
-        -get_clock() int
-        -is_prime() bool
-        +date_time_test() void
+        -log(string) void
+        -get_timestamp()
         +get_instance() Logger&$
     }
+
+class LoggingStrategy {
+        <<abstract>>
+
+        +log(string) void*
+    }
+
+    ConsoleLogger --> LoggingStrategy

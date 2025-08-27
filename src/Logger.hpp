@@ -6,25 +6,24 @@
 #define LOGGERTESTING_CPP_LOGGER_HPP
 #include <chrono>
 
+
 using namespace std;
 
 class Logger {
 
 public:
-
-    void date_time_test();
     virtual ~Logger();
 
-    static Logger& get_instance();
+    void log(string message);
+
+    static Logger *get_instance();
 
 private:
     Logger();
 
     int iterations;
-    static Logger instance;
 
-    bool is_prime(int num);
-    int get_clock(std::chrono::time_point<chrono::system_clock> datetime);
+    static Logger *instance;
 };
 
 

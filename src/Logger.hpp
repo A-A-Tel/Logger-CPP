@@ -6,22 +6,25 @@
 #define LOGGERTESTING_CPP_LOGGER_HPP
 #include <chrono>
 
+#include "date/tz.h"
+#include "strategies/LogStrategy.hpp"
 
-using namespace std;
 
 class Logger {
 
 public:
     virtual ~Logger();
 
-    void log(string message);
+    void log(std::string message);
 
     static Logger *get_instance();
 
 private:
     Logger();
 
-    int iterations;
+    log_strats::LogStrategy *strategy;
+
+    date::zoned_time<std::chrono::duration<long, std::ratio<1, 1000000000>>> get_time() const;
 
     static Logger *instance;
 };

@@ -10,22 +10,26 @@
 using namespace std;
 using namespace chrono;
 
-namespace log {
+
+namespace audit {
 
     class Logger final {
     public:
         ~Logger() = default;
 
+
         static Logger *get_instance();
+
+        static string get_formatted_datetime(time_point<system_clock> tp);
 
     private:
         Logger() = default;
+
 
         static Logger *instance;
     };
 
 }
-
 
 
 #endif //LOGGERTESTING_CPP_LOGGER_HPP

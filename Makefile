@@ -19,7 +19,9 @@ setup:
 	mkdir -p src $(FILE_PATH)
 
 build:
-	$(COMP) $(FILES) -o $(FILE_PATH)/$(PROJECT_NAME)-$(VER) -std=$(C_STD)
+	$(COMP) $(FILES) -o $(FILE_PATH)/$(PROJECT_NAME)-$(VER) \
+	-std=$(C_STD) -ldate-tz
+
 
 run:
 	chmod 777 $(FILE_PATH)/$(PROJECT_NAME)-$(VER)

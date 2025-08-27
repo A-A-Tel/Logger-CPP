@@ -7,6 +7,7 @@
 #include <string>
 
 #include "Logger.hpp"
+#include "strategies/ConsoleStrategy.hpp"
 
 
 Logger *Logger::get_instance() {
@@ -16,7 +17,7 @@ Logger *Logger::get_instance() {
 Logger *Logger::instance = new Logger();
 
 Logger::Logger() {
-    strategy;
+    strategy = new log_strats::ConsoleStrategy();
 }
 
 date::zoned_time<std::chrono::duration<long, std::ratio<1, 1000000000>>> Logger::get_time() const {

@@ -6,12 +6,8 @@ set(CMAKE_CXX_STANDARD 20)
 add_executable(LoggerTesting_CPP src/main.cpp
         src/Logger.cpp
         src/Logger.hpp
-        src/date/date.h
         src/strategies/LogStrategy.cpp
         src/strategies/LogStrategy.hpp
-        src/date/tz.h
         src/strategies/ConsoleStrategy.cpp
         src/strategies/ConsoleStrategy.hpp
-        src/date/tz.cpp
-        src/date/tz_private.h
 )

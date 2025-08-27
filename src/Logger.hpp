@@ -5,8 +5,9 @@
 #ifndef LOGGERTESTING_CPP_LOGGER_HPP
 #define LOGGERTESTING_CPP_LOGGER_HPP
 #include <chrono>
-
 #include <date/date.h>
+#include <date/tz.h>
+
 #include "strategies/LogStrategy.hpp"
 
 

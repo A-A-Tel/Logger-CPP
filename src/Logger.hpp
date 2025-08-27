@@ -10,10 +10,23 @@
 class Logger {
 
 public:
+    static void init() {
+        if (initialized) return;
+        instance = Logger();
+        initialized = true;
+    }
+    static Logger get_instance() {
+        return instance;
+    }
+
     void date_time_test();
 
 private:
-    std::string format_date_from_millis(unsigned long long millis);
+    static Logger instance;
+    inline static bool initialized = false;
+
+
+    Logger();
 };
 
 

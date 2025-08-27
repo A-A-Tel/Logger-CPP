@@ -11,8 +11,8 @@ else
 endif
 
 FILES := $(wildcard ./src/*.c)
-FILES += $(wildcard ./src/*.h)
 FILES += $(wildcard ./src/*.cpp)
+FILES += $(wildcard ./src/*.h)
 FILES += $(wildcard ./src/*.hpp)
 
 setup:

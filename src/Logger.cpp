@@ -18,4 +18,6 @@ void Logger::date_time_test() {
         cout << ctime(&now);
         sleep(1);
     }
+
+
 }

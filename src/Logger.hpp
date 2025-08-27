@@ -4,21 +4,27 @@
 
 #ifndef LOGGERTESTING_CPP_LOGGER_HPP
 #define LOGGERTESTING_CPP_LOGGER_HPP
+#include <chrono>
+
+using namespace std;
 
 class Logger {
 
 public:
-    void date_time_test();
 
-    static Logger& get_instance() {
-        return instance;
-    }
+    void date_time_test();
+    virtual ~Logger();
+
+    static Logger& get_instance();
 
 private:
     Logger();
 
-    int iterations = 0; // When this is uncommented, the whole thing breaks??
+    int iterations;
     static Logger instance;
+
+    bool is_prime(int num);
+    int get_clock(std::chrono::time_point<chrono::system_clock> datetime);
 };
 
 

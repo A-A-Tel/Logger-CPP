@@ -13,13 +13,12 @@ using namespace std;
 
 void Logger::date_time_test() {
 
-    while (true) {
+    while (iterations < 10) {
         time_t now = time(nullptr);
         cout << ctime(&now);
+        iterations++;
         sleep(1);
     }
-
-
 }
 
 Logger Logger::instance = Logger();

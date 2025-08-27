@@ -5,14 +5,12 @@
 #ifndef LOGGERTESTING_CPP_LOGGER_HPP
 #define LOGGERTESTING_CPP_LOGGER_HPP
 
-#include <string>
-
 class Logger {
 
 public:
     void date_time_test();
 
-    static Logger get_instance() {
+    static Logger& get_instance() {
         return instance;
     }
 

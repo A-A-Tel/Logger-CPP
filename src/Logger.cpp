@@ -3,17 +3,19 @@
 //
 
 #include <iostream>
-#include <chrono>
+#include <ctime>
+#include <unistd.h>
 
 #include "Logger.hpp"
-#include "date.h"
+
 
 using namespace std;
 
 void Logger::date_time_test() {
 
-    using namespace date;
-
-    cout << chrono::system_clock::now() << '\n';
-
+    while (true) {
+        time_t now = time(nullptr);
+        cout << ctime(&now);
+        sleep(1);
+    }
 }

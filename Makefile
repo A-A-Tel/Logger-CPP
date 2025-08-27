@@ -1,4 +1,4 @@
-PROJECT_NAME := ILoveCompiling
+PROJECT_NAME := LoggerTesting
 VER := 1.0
 
 COMP := g++

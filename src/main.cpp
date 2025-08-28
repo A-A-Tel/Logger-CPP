@@ -1,5 +1,7 @@
 #include "Logger.hpp"
 #include "strats/ConsoleStrategy.hpp"
+#include "strats/ErrorStrategy.hpp"
+#include "strats/FileStrategy.hpp"
 
 void log(audit::Logger *logger) {
     for (int i = 0; i < 10; i++) {
@@ -8,5 +10,15 @@ void log(audit::Logger *logger) {
 }
 
 int main() {
+
+    audit::Logger *logger = audit::Logger::get_instance();
+
+    log(logger);
+    logger->set_strategy(new audit::strats::ConsoleStrategy());
+    log(logger);
+    logger->set_strategy(new audit::strats::ErrorStrategy());
+    logger->log("sad times this is.");
+
+
     return 0;
 }

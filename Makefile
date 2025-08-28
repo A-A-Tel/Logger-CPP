@@ -4,21 +4,33 @@ COMPILER := g++
 STD := c++20
 LIBS := -ldate-tz
 ARGS := -fcompare-debug-second
+SRC := src/
+INCLUDE := include/
+OUT := out
 
-FILES := $(shell find ./src/ -type f -name "*.cpp")
-FILES += $(shell find ./src/ -type f -name "*.hpp")
+C_FILES := $(shell find ./src/ -type f -name "*.c")
+H_FILES := $(shell find ./src/ -type f -name "*.h")
+C_FILES += $(shell find ./src/ -type f -name "*.cpp")
+H_FILES += $(shell find ./src/ -type f -name "*.hpp")
 
-BUILD_FILE := build/$(NAME)-$(VERSION);
+FILE_NAME := $(NAME)-$(VERSION)
 
-build:
-	mkdir build
-	$(COMPILER) $(FILES) -o build/$(NAME)-$(VERSION) -std=$(STD) $(LIBS) $(ARGS)
+$(OUT)/exec/$(FILE_NAME):
+	mkdir -p $(OUT)/exec/
+	$(COMPILER) $(C_FILES) $($H_FILES) -o $(OUT)/exec/$(FILE_NAME) -std=$(STD) $(LIBS) $(ARGS)
+
+
+$(OUT)/lib$(FILE_NAME).a:
+	mkdir -p $(OUT)/lib/
+
+
+
 
 run:
-	chmod 777 $(BUILD_FILE)
-	$(BUILD_FILE)
+	chmod 777 $(OUT)/exec/$(FILE_NAME)
+	$(OUT)/exec/$(FILE_NAME)
 
 clean:
-	rm -rf build
+	rm -rf $(OUT)
 
-all: clean build run
+all: clean $(OUT)/exec/$(FILE_NAME) run

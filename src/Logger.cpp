@@ -10,18 +10,20 @@
 #include "strats/FileStrategy.hpp"
 
 
+void audit::Logger::log(const std::string message) {
+    strategy->log(message);
+}
+
+void audit::Logger::set_strategy(audit::strats::LogStrategy *strategy) {
+    this->strategy = strategy;
+}
+
 audit::Logger *audit::Logger::get_instance() {
     return instance;
 }
 
 std::string audit::Logger::get_formatted_datetime() {
     return get_formatted_datetime("(%F %X %Z)");
-}
-
-audit::Logger *audit::Logger::instance = new audit::Logger();
-
-void audit::Logger::log(const std::string message) {
-    strategy->log(message);
 }
 
 std::string audit::Logger::get_formatted_datetime(std::string format) {
@@ -34,3 +36,5 @@ std::string audit::Logger::get_formatted_datetime(std::string format) {
 audit::Logger::Logger() {
     strategy = new strats::FileStrategy();
 }
+
+audit::Logger *audit::Logger::instance = new audit::Logger();

@@ -1,14 +1,12 @@
 #include "Logger.hpp"
+#include "strats/ConsoleStrategy.hpp"
 
+void log(audit::Logger *logger) {
+    for (int i = 0; i < 10; i++) {
+        logger->log(std::to_string(i));
+    }
+}
 
 int main() {
-    audit::Logger *logger = audit::Logger::get_instance();
-
-    logger->log("Hello World!");
-    logger->log("Hello World!1");
-    logger->log("Hello World!2");
-    logger->log("Hello World!3");
-    logger->log("Hello World!4");
-
     return 0;
 }

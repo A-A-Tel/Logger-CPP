@@ -11,7 +11,7 @@ namespace audit::strats {
         log_file = std::ofstream(Logger::get_formatted_datetime("%F") + ".log", std::ios::app);
     }
 
-    void FileStrategy::log(std::string message) {
+    void FileStrategy::log(const std::string message) {
         log_file << Logger::get_formatted_datetime() << " - " << message << std::endl;
     }
 } // audit::strats

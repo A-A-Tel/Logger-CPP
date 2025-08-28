@@ -1,34 +1,24 @@
-PROJECT_NAME := LoggerTesting
-VER := 1.0
+NAME := Logger
+VERSION := 1.0
+COMPILER := g++
+STD := c++20
+LIBS := -ldate-tz
+ARGS := -fcompare-debug-second
 
-COMP := g++
-C_STD := c++20
+FILES := $(shell find ./src/ -type f -name "*.cpp")
+FILES += $(shell find ./src/ -type f -name "*.hpp")
 
-ifeq ($(DEBUG),false)
-	FILE_PATH := ./release
-else
-	FILE_PATH := ./debug
-endif
-
-FILES := $(shell find ./src/ -type f -name '*.c')
-FILES += $(shell find ./src/ -type f -name '*.h')
-FILES += $(shell find ./src/ -type f -name '*.cpp')
-FILES += $(shell find ./src/ -type f -name '*.hpp')
-
-setup:
-	mkdir -p src $(FILE_PATH)
+BUILD_FILE := build/$(NAME)-$(VERSION);
 
 build:
-	$(COMP) $(FILES) -o $(FILE_PATH)/$(PROJECT_NAME)-$(VER) \
-	-std=$(C_STD) -ldate-tz -fcompare-debug-second
-
+	mkdir build
+	$(COMPILER) $(FILES) -o build/$(NAME)-$(VERSION) -std=$(STD) $(LIBS) $(ARGS)
 
 run:
-	chmod 777 $(FILE_PATH)/$(PROJECT_NAME)-$(VER)
-	$(FILE_PATH)/$(PROJECT_NAME)-$(VER)
-
-all: clean setup build run
+	chmod 777 $(BUILD_FILE)
+	$(BUILD_FILE)
 
 clean:
-	rm -rf debug/
-	rm -rf release/
+	rm -rf build
+
+all: clean build run

@@ -20,14 +20,14 @@ setup:
 
 build:
 	$(COMP) $(FILES) -o $(FILE_PATH)/$(PROJECT_NAME)-$(VER) \
-	-std=$(C_STD) -ldate-tz
+	-std=$(C_STD) -ldate-tz -fcompare-debug-second
 
 
 run:
 	chmod 777 $(FILE_PATH)/$(PROJECT_NAME)-$(VER)
 	$(FILE_PATH)/$(PROJECT_NAME)-$(VER)
 
-all: setup build run
+all: clean setup build run
 
 clean:
 	rm -rf debug/

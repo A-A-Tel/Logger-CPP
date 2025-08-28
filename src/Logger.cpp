@@ -2,19 +2,30 @@
 // Created by anthony on 27-08-2025.
 //
 #include <date/date.h>
+#include <date/tz.h>
 
 #include "Logger.hpp"
 
-using namespace audit;
+#include "strats/ConsoleStrategy.hpp"
 
-Logger *Logger::get_instance() {
+
+audit::Logger *audit::Logger::get_instance() {
     return instance;
 }
 
-Logger *Logger::instance = new Logger();
+audit::Logger *audit::Logger::instance = new audit::Logger();
 
-string Logger::get_formatted_datetime(const time_point<system_clock> tp) {
+void audit::Logger::log(const std::string message) {
+    strategy->log(message);
+}
+
+std::string audit::Logger::get_formatted_datetime() {
 
     using namespace date;
-    return date::format("%F %T %Z", tp);
+
+    return date::format("(%F %X %Z)", make_zoned(current_zone(), std::chrono::system_clock::now()));
+}
+
+audit::Logger::Logger() {
+    strategy = new strats::ConsoleStrategy();
 }

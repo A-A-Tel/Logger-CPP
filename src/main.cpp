@@ -4,7 +4,9 @@
 
 
 int main() {
-    std::cout << audit::Logger::get_formatted_datetime(std::chrono::system_clock().now()) << std::endl;
+    audit::Logger *logger = audit::Logger::get_instance();
+
+    logger->log("Hello World!");
 
     return 0;
 }

@@ -5,31 +5,31 @@
 #ifndef LOGGERTESTING_CPP_LOGGER_HPP
 #define LOGGERTESTING_CPP_LOGGER_HPP
 
-#include "chrono"
+#include <string>
 
-using namespace std;
-using namespace chrono;
-
+#include "strats/LogStrategy.hpp"
 
 namespace audit {
 
-    class Logger final {
+    class Logger {
     public:
         ~Logger() = default;
 
+        void log(std::string message);
 
         static Logger *get_instance();
 
-        static string get_formatted_datetime(time_point<system_clock> tp);
+        static std::string get_formatted_datetime();
 
     private:
-        Logger() = default;
+        Logger();
 
+        strats::LogStrategy *strategy;
 
         static Logger *instance;
     };
 
-}
+} // audit
 
 
 #endif //LOGGERTESTING_CPP_LOGGER_HPP

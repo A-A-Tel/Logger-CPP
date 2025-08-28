@@ -2,8 +2,7 @@ NAME := Logger
 VERSION := 1.0
 COMPILER := g++
 STD := c++20
-LIBS := -ldate-tz
-ARGS := -fcompare-debug-second
+ARGS := -ldate-tz -fcompare-debug-second
 SRC := src/
 INCLUDE := include/
 OUT := out
@@ -17,11 +16,15 @@ FILE_NAME := $(NAME)-$(VERSION)
 
 $(OUT)/exec/$(FILE_NAME):
 	mkdir -p $(OUT)/exec/
-	$(COMPILER) $(C_FILES) $($H_FILES) -o $(OUT)/exec/$(FILE_NAME) -std=$(STD) $(LIBS) $(ARGS)
+	$(COMPILER) $(C_FILES) $($H_FILES) -o $(OUT)/exec/$(FILE_NAME) -std=$(STD) $(ARGS)
 
 
 $(OUT)/lib$(FILE_NAME).a:
 	mkdir -p $(OUT)/lib/
+	$(COMPILER) $(C_FILES) -c
+	rm -rf main.o
+	ar rvs $(OUT)/lib/lib$(FILE_NAME).a *.o
+	rm -rf *.o
 
 
 
@@ -33,4 +36,6 @@ run:
 clean:
 	rm -rf $(OUT)
 
-all: clean $(OUT)/exec/$(FILE_NAME) run
+build: $(OUT)/exec/$(FILE_NAME) run
+
+lib: $(OUT)/lib$(FILE_NAME).a

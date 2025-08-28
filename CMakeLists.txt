@@ -9,4 +9,6 @@ add_executable(LoggerTesting_CPP src/main.cpp
         src/strats/LogStrategy.hpp
         src/strats/ConsoleStrategy.cpp
         src/strats/ConsoleStrategy.hpp
+        src/strats/FileStrategy.cpp
+        src/strats/FileStrategy.hpp
 )

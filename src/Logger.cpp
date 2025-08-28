@@ -7,10 +7,15 @@
 #include "Logger.hpp"
 
 #include "strats/ConsoleStrategy.hpp"
+#include "strats/FileStrategy.hpp"
 
 
 audit::Logger *audit::Logger::get_instance() {
     return instance;
+}
+
+std::string audit::Logger::get_formatted_datetime() {
+    return get_formatted_datetime("(%F %X %Z)");
 }
 
 audit::Logger *audit::Logger::instance = new audit::Logger();
@@ -19,13 +24,13 @@ void audit::Logger::log(const std::string message) {
     strategy->log(message);
 }
 
-std::string audit::Logger::get_formatted_datetime() {
+std::string audit::Logger::get_formatted_datetime(std::string format) {
 
     using namespace date;
 
-    return date::format("(%F %X %Z)", make_zoned(current_zone(), std::chrono::system_clock::now()));
+    return date::format(format, make_zoned(current_zone(), std::chrono::system_clock::now()));
 }
 
 audit::Logger::Logger() {
-    strategy = new strats::ConsoleStrategy();
+    strategy = new strats::FileStrategy();
 }

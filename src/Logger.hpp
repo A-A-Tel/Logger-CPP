@@ -20,6 +20,7 @@ namespace audit {
         static Logger *get_instance();
 
         static std::string get_formatted_datetime();
+        static std::string get_formatted_datetime(std::string format);
 
     private:
         Logger();

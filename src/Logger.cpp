@@ -4,17 +4,16 @@
 #include <date/date.h>
 #include <date/tz.h>
 
-#include "Logger.hpp"
+#include <Logger.hpp>
 
-#include "strats/ConsoleStrategy.hpp"
-#include "strats/FileStrategy.hpp"
+#include <strats/FileStrategy.hpp>
 
 
 void audit::Logger::log(const std::string message) {
     strategy->log(message);
 }
 
-void audit::Logger::set_strategy(audit::strats::LogStrategy *strategy) {
+void audit::Logger::set_strategy(strats::LogStrategy *strategy) {
     this->strategy = strategy;
 }
 
@@ -37,4 +36,4 @@ audit::Logger::Logger() {
     strategy = new strats::FileStrategy();
 }
 
-audit::Logger *audit::Logger::instance = new audit::Logger();
+audit::Logger *audit::Logger::instance = new Logger();

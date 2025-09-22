@@ -7,7 +7,7 @@
 
 #include <string>
 
-#include "strats/LogStrategy.hpp"
+#include <strats/LogStrategy.hpp>
 
 namespace audit {
 

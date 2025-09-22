@@ -2,9 +2,9 @@
 // Created by anthony on 28-08-2025.
 //
 
-#include "FileStrategy.hpp"
+#include <strats/FileStrategy.hpp>
 
-#include "../Logger.hpp"
+#include <Logger.hpp>
 
 namespace audit::strats {
     FileStrategy::FileStrategy() {

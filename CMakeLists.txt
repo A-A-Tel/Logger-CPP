@@ -1,16 +1,21 @@
 cmake_minimum_required(VERSION 4.0)
 project(LoggerTesting_CPP)
 
+include_directories(
+        includes/
+)
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(LoggerTesting_CPP src/main.cpp
+add_executable(main src/main.cpp
         src/Logger.cpp
-        src/Logger.hpp
-        src/strats/LogStrategy.hpp
+        includes/Logger.hpp
+        includes/strats/LogStrategy.hpp
         src/strats/ConsoleStrategy.cpp
-        src/strats/ConsoleStrategy.hpp
+        includes/strats/ConsoleStrategy.hpp
         src/strats/FileStrategy.cpp
-        src/strats/FileStrategy.hpp
+        includes/strats/FileStrategy.hpp
         src/strats/ErrorStrategy.cpp
-        src/strats/ErrorStrategy.hpp
+        includes/strats/ErrorStrategy.hpp
 )
+
+

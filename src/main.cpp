@@ -1,7 +1,6 @@
-#include "Logger.hpp"
-#include "strats/ConsoleStrategy.hpp"
+#include <Logger.hpp>
+#include <strats/ConsoleStrategy.hpp>
 #include "strats/ErrorStrategy.hpp"
-#include "strats/FileStrategy.hpp"
 
 void log(audit::Logger *logger) {
     for (int i = 0; i < 10; i++) {

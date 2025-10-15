@@ -8,7 +8,7 @@
 #include <iostream>
 #include <string>
 
-namespace audit::strats {
+namespace logger::strats {
 
     class LogStrategy {
 
@@ -17,6 +17,6 @@ namespace audit::strats {
 
         virtual void log(std::string message) = 0;
     };
-} // audit::strats
+} // logger::strats
 
 #endif //LOGGERTESTING_CPP_STRATS_HPP

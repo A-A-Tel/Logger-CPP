@@ -4,13 +4,13 @@
 
 #ifndef LOGGERTESTING_CPP_CONSOLESTRATEGY_HPP
 #define LOGGERTESTING_CPP_CONSOLESTRATEGY_HPP
-#include "LogStrategy.hpp"
+#include <logger/strats/LogStrategy.hpp>
 
-namespace audit::strats {
+namespace logger::strats {
     class ConsoleStrategy : public LogStrategy {
     public:
         void log(std::string message) override;
     };
-} // audit::strats
+} // logger::strats
 
 #endif //LOGGERTESTING_CPP_CONSOLESTRATEGY_HPP

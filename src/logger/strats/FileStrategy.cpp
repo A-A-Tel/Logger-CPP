@@ -2,11 +2,11 @@
 // Created by anthony on 28-08-2025.
 //
 
-#include <strats/FileStrategy.hpp>
+#include <logger/strats/FileStrategy.hpp>
 
-#include <Logger.hpp>
+#include <logger/Logger.hpp>
 
-namespace audit::strats {
+namespace logger::strats {
     FileStrategy::FileStrategy() {
         log_file = std::ofstream(Logger::get_formatted_datetime("%F") + ".log", std::ios::app);
     }
@@ -14,4 +14,4 @@ namespace audit::strats {
     void FileStrategy::log(const std::string message) {
         log_file << Logger::get_formatted_datetime() << " - " << message << std::endl;
     }
-} // audit::strats
+} // logger::strats

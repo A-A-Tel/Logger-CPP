@@ -7,9 +7,9 @@
 
 #include <fstream>
 
-#include "LogStrategy.hpp"
+#include <logger/strats/LogStrategy.hpp>
 
-namespace audit::strats {
+namespace logger::strats {
     class FileStrategy : public LogStrategy {
 
     public:
@@ -18,6 +18,6 @@ namespace audit::strats {
     private:
         std::ofstream log_file;
     };
-} // audit::strats
+} // logger::strats
 
 #endif //LOGGERTESTING_CPP_FILESTRATEGY_HPP

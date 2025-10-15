@@ -7,9 +7,9 @@
 
 #include <string>
 
-#include <strats/LogStrategy.hpp>
+#include <logger/strats/LogStrategy.hpp>
 
-namespace audit {
+namespace logger {
 
     class Logger {
     public:
